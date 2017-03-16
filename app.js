@@ -23,6 +23,10 @@ var dialog = new builder.IntentDialog({recognizers:[recognizer]});
 
 bot.dialog('/',dialog);
 
+var jsonResp = {intent:"WhoAreYou",
+                isDialog:true,    
+                msg:'We are a bunch of focused software developers. We build cognitive technology based applications. We are AI focused software shop'};    
+
 dialog.matches('ourTechnology',builder.DialogAction.send('ourTechnology~~~Anything under the sun in JAVA. Having said that are we hands-on Angular 2, AWS, Relations & No-SQL DBs and more. List is quite long'));
 dialog.matches('location',builder.DialogAction.send('location~~~We work out of Co-Hub Sanjay Nagar, Bangalore 560094. You can reach us at +91 9663333314'));
 dialog.matches('WhatWeDo',builder.DialogAction.send('WhatWeDo~~~We integrate intelligence with any application…'));
@@ -34,7 +38,8 @@ dialog.matches('AboutPeople.founders',[
     }
 ]);
 dialog.matches('AboutPeople.teamsize',builder.DialogAction.send('AboutPeople.teamsize~~~We know size does matter, but does not hinder. We are bootstrapping. We are small, focused and agile...'));
-dialog.matches('WhoAreYou',builder.DialogAction.send('WhoAreYou~~~We are a bunch of focused software developers. We build cognitive technology based applications. We are AI focused software shop'));
+//dialog.matches('WhoAreYou',builder.DialogAction.send('WhoAreYou~~~We are a bunch of focused software developers. We build cognitive technology based applications. We are AI focused software shop'));
+dialog.matches('WhoAreYou',builder.DialogAction.send(jsonResp));
 dialog.matches('clients',builder.DialogAction.send('clients~~~We do not have many. At the moment Chariot World Tours, Microsft, Stireed and few more...'));
 dialog.matches('getintouch',[
     function(session,args,next){
